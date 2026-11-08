@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ШАХ</title>
+<style>
+    :root { color-scheme: dark; }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html { height: 100%; }
+
+    body {
+        background: radial-gradient(circle at center, #2c2c2c 0%, #0f0f0f 100%);
+        background-color: #0f0f0f;
+        color: #ffffff;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: background 0.3s;
+    }
+
+    /* Экран 1: кнопка */
+    #screen1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .shah-btn {
+        background-color: #e60000;
+        color: #ffffff;
+        border: 4px solid #ffffff;
+        padding: 40px 100px;
+        font-size: 3rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 10px 0 #800000, 0 20px 30px rgba(0, 0, 0, 0.8);
+        transition: all 0.1s ease;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    .shah-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 0 #800000, 0 25px 35px rgba(0, 0, 0, 0.9);
+        background-color: #ff1a1a;
+    }
+
+    .shah-btn:active {
+        transform: translateY(8px);
+        box-shadow: 0 2px 0 #800000, 0 5px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .shah-btn:focus-visible {
+        outline: 4px solid #ffffff;
+        outline-offset: 6px;
+    }
+
+    /* Экран 2: картинка */
+    #screen2 {
+        display: none;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #000;
+        z-index: 10;
+    }
+
+    #screen2.active {
+        display: block;
+        animation: fadeIn 0.5s forwards;
+    }
+
+    .fullscreen-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
